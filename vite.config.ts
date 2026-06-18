@@ -7,5 +7,5 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  base: '/Pata-USA-New/',
+  base: '/PataUSANew/',
 });
