@@ -80,7 +80,7 @@ const allEvents = [
     location: 'Houston Event Center, TX',
     category: 'Cultural',
     status: 'past',
-    image: '/images/CulturalImage1-CMEiyyEM.jpeg',
+    image: `${import.meta.env.BASE_URL}images/CulturalImage1-CMEiyyEM.jpeg`,
     desc: 'Annual awards ceremony honoring community members for their contributions to Telugu culture and society.',
   },
   {
@@ -91,7 +91,7 @@ const allEvents = [
     location: 'Dallas Convention Center, TX',
     category: 'Convention',
     status: 'past',
-    image: '/images/CulturalImage2-DnRRJzhN.jpeg',
+    image: `${import.meta.env.BASE_URL}images/CulturalImage2-DnRRJzhN.jpeg`,
     desc: 'Flagship annual event featuring cultural performances, community awards, and leadership recognition.',
   },
   {
@@ -102,7 +102,7 @@ const allEvents = [
     location: 'PATA Community Hall, Houston, TX',
     category: 'Cultural',
     status: 'past',
-    image: '/images/CulturalImage3-D96AVJoU.jpeg',
+    image: `${import.meta.env.BASE_URL}images/CulturalImage3-D96AVJoU.jpeg`,
     desc: 'Traditional Pongal celebrations with cultural speeches, performances, and community feast.',
   },
 ];

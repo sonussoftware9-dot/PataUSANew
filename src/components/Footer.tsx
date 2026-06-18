@@ -18,7 +18,7 @@ export default function Footer({ onNavigate }: FooterProps) {
         <div>
           <div className="flex items-center gap-3 mb-5">
             <img
-              src="/images/ab784090-441c-40ef-8c98-6f00d64b7dbe.png"
+              src={`${import.meta.env.BASE_URL}images/ab784090-441c-40ef-8c98-6f00d64b7dbe.png`}
               alt="PATA Logo"
               className="h-16 w-16 object-contain"
             />

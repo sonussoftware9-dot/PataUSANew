@@ -45,19 +45,19 @@ const events = [
     date: 'Jul 12, 2025',
     title: 'Ugadi Cultural Celebration',
     location: 'Houston Convention Center, TX',
-    image: '/images/CulturalImage1-CMEiyyEM.jpeg',
+    image: `${import.meta.env.BASE_URL}images/CulturalImage1-CMEiyyEM.jpeg`,
   },
   {
     date: 'Aug 15, 2025',
     title: 'PATA Annual Convention',
     location: 'Dallas Convention Center, TX',
-    image: '/images/CulturalImage2-DnRRJzhN.jpeg',
+    image: `${import.meta.env.BASE_URL}images/CulturalImage2-DnRRJzhN.jpeg`,
   },
   {
     date: 'Sep 20, 2025',
     title: 'PATA Cultural Awards Night',
     location: 'Austin Convention Center, TX',
-    image: '/images/CulturalImage3-D96AVJoU.jpeg',
+    image: `${import.meta.env.BASE_URL}images/CulturalImage3-D96AVJoU.jpeg`,
   },
 ];
 
@@ -218,7 +218,7 @@ export default function Home({ onNavigate }: HomeProps) {
           </div>
           <div className="relative">
             <img
-              src="/images/CulturalImage2-DnRRJzhN.jpeg"
+              src={`${import.meta.env.BASE_URL}images/CulturalImage2-DnRRJzhN.jpeg`}
               alt="PATA Community Event"
               className="rounded-2xl shadow-2xl w-full h-80 object-cover object-top"
             />
@@ -248,7 +248,7 @@ export default function Home({ onNavigate }: HomeProps) {
               <div className="relative">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#E8760A] to-orange-300 blur-xl opacity-40 scale-110" />
                 <img
-                  src="/images/DSC02172.jpg"
+                  src={`${import.meta.env.BASE_URL}images/DSC02172.jpg`}
                   alt="James Watt Kommu - President, PATA"
                   className="relative rounded-2xl shadow-2xl w-64 h-80 object-cover object-top border-4 border-white/20"
                 />
@@ -427,17 +427,17 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="grid md:grid-cols-3 gap-5">
             {[
               {
-                src: '/images/CulturalImage1-CMEiyyEM.jpeg',
+                src: `${import.meta.env.BASE_URL}images/CulturalImage1-CMEiyyEM.jpeg`,
                 caption: 'PATA Award Ceremony',
                 tag: 'Awards',
               },
               {
-                src: '/images/CulturalImage2-DnRRJzhN.jpeg',
+                src: `${import.meta.env.BASE_URL}images/CulturalImage2-DnRRJzhN.jpeg`,
                 caption: 'PATA Annual Convention',
                 tag: 'Convention',
               },
               {
-                src: '/images/CulturalImage3-D96AVJoU.jpeg',
+                src: `${import.meta.env.BASE_URL}images/CulturalImage3-D96AVJoU.jpeg`,
                 caption: 'PATA Cultural Program',
                 tag: 'Cultural',
               },
@@ -526,7 +526,7 @@ export default function Home({ onNavigate }: HomeProps) {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="flex justify-center mb-6">
             <img
-              src="/images/ab784090-441c-40ef-8c98-6f00d64b7dbe.png"
+              src={`${import.meta.env.BASE_URL}images/ab784090-441c-40ef-8c98-6f00d64b7dbe.png`}
               alt="PATA Logo"
               className="h-20 w-20 object-contain"
             />

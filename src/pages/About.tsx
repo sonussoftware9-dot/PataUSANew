@@ -8,7 +8,7 @@ const leadership = [
   {
     name: 'James Watt Kommu',
     title: 'President',
-    image: '/images/DSC02172.jpg',
+    image: `${import.meta.env.BASE_URL}images/DSC02172.jpg`,
   },
   {
     name: 'Srilatha Reddy',
@@ -88,7 +88,7 @@ export default function About({ onNavigate }: AboutProps) {
           </div>
           <div className="relative">
             <img
-              src="/images/CulturalImage2-DnRRJzhN.jpeg"
+              src={`${import.meta.env.BASE_URL}images/CulturalImage2-DnRRJzhN.jpeg`}
               alt="PATA Annual Convention"
               className="rounded-2xl shadow-2xl w-full h-80 object-cover object-top"
             />
@@ -110,9 +110,9 @@ export default function About({ onNavigate }: AboutProps) {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { src: '/images/CulturalImage1-CMEiyyEM.jpeg', caption: 'PATA Award Ceremony', sub: 'Honoring community excellence' },
-              { src: '/images/CulturalImage2-DnRRJzhN.jpeg', caption: 'PATA Annual Convention', sub: 'Celebrating culture on stage' },
-              { src: '/images/CulturalImage3-D96AVJoU.jpeg', caption: 'PATA Cultural Program', sub: 'Voices of the Telugu community' },
+              { src: `${import.meta.env.BASE_URL}images/CulturalImage1-CMEiyyEM.jpeg`, caption: 'PATA Award Ceremony', sub: 'Honoring community excellence' },
+              { src: `${import.meta.env.BASE_URL}images/CulturalImage2-DnRRJzhN.jpeg`, caption: 'PATA Annual Convention', sub: 'Celebrating culture on stage' },
+              { src: `${import.meta.env.BASE_URL}images/CulturalImage3-D96AVJoU.jpeg`, caption: 'PATA Cultural Program', sub: 'Voices of the Telugu community' },
             ].map((item) => (
               <div key={item.src} className="group relative overflow-hidden rounded-2xl shadow-lg">
                 <img
@@ -145,7 +145,7 @@ export default function About({ onNavigate }: AboutProps) {
               <div className="relative">
                 <div className="absolute inset-0 rounded-2xl bg-[#E8760A] blur-2xl opacity-30 scale-110" />
                 <img
-                  src="/images/DSC02172.jpg"
+                  src={`${import.meta.env.BASE_URL}images/DSC02172.jpg`}
                   alt="James Watt Kommu"
                   className="relative rounded-2xl shadow-2xl w-56 h-72 object-cover object-top border-4 border-orange-400/40"
                 />
