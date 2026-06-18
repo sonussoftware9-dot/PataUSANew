@@ -141,7 +141,7 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="flex-1 bg-[#138808]" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 py-20">
+        <div className="relative z-10 max-w-7xl mr-auto px-4 py-20">
           <div className="max-w-2xl">
             <div className="flex items-center gap-2 mb-6">
               <Star size={16} className="text-orange-400" fill="currentColor" />
@@ -175,7 +175,6 @@ export default function Home({ onNavigate }: HomeProps) {
             <div className="mt-12 flex flex-wrap gap-8">
               {[
                 { n: '5,000+', l: 'Members' },
-                { n: '15+', l: 'Years Serving' },
                 { n: '50+', l: 'Annual Events' },
               ].map((s) => (
                 <div key={s.l}>
@@ -222,10 +221,6 @@ export default function Home({ onNavigate }: HomeProps) {
               alt="PATA Community Event"
               className="rounded-2xl shadow-2xl w-full h-80 object-cover object-top"
             />
-            <div className="absolute -bottom-6 -left-6 bg-[#E8760A] text-white rounded-xl p-5 shadow-xl">
-              <div className="text-3xl font-extrabold">15+</div>
-              <div className="text-sm font-semibold">Years of Excellence</div>
-            </div>
             <div className="absolute -top-4 -right-4 bg-[#1B3A8A] text-white rounded-xl p-4 shadow-xl">
               <Globe size={28} className="mb-1" />
               <div className="text-xs font-semibold">Serving USA</div>

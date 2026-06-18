@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Menu, X, ChevronDown, Phone, Mail } from 'lucide-react';
 
 interface HeaderProps {
@@ -32,39 +32,47 @@ const navLinks = [
   { label: 'Contact', page: 'contact' },
 ];
 
-export default function Header({ currentPage, onNavigate }: HeaderProps) {
+export default function Header({
+  currentPage,
+  onNavigate,
+}: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', handler);
-    return () => window.removeEventListener('scroll', handler);
-  }, []);
 
   const handleNav = (page: string) => {
     onNavigate(page);
     setMobileOpen(false);
     setOpenDropdown(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
 
   return (
-    <header className="sticky top-0 z-50 shadow-lg">
-      {/* Top bar */}
+    <header className="shadow-lg">
+      {/* Top Bar */}
       <div className="bg-[#1B3A8A] text-white text-sm">
         <div className="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-4">
-            <a href="tel:+18555555555" className="flex items-center gap-1 hover:text-orange-300 transition-colors">
+            <a
+              href="tel:+18555555555"
+              className="flex items-center gap-1 hover:text-orange-300 transition-colors"
+            >
               <Phone size={13} />
               <span>+1 (855) PATA-USA</span>
             </a>
-            <a href="mailto:info@patausa.org" className="flex items-center gap-1 hover:text-orange-300 transition-colors">
+
+            <a
+              href="mailto:info@patausa.org"
+              className="flex items-center gap-1 hover:text-orange-300 transition-colors"
+            >
               <Mail size={13} />
               <span>info@patausa.org</span>
             </a>
           </div>
+
           <div className="flex items-center gap-3">
             <button
               onClick={() => handleNav('membership')}
@@ -72,6 +80,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
             >
               Join PATA
             </button>
+
             <button
               onClick={() => handleNav('foundation')}
               className="border border-orange-400 text-orange-300 hover:bg-orange-500 hover:text-white text-xs font-semibold px-3 py-1 rounded transition-colors"
@@ -82,87 +91,130 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
         </div>
       </div>
 
-      {/* Main nav */}
-      <div className={`transition-all duration-300 ${scrolled ? 'bg-white shadow-md' : 'bg-white'}`}>
+      {/* Banner */}
+      {/* Banner */}
+      <div className="bg-white flex justify-center border-b border-gray-200">
+        <img
+          src={`${import.meta.env.BASE_URL}images/patanew.png`}
+          alt="PATA Banner"
+          className="max-w-full h-auto"
+        />
+      </div>
+
+      {/* Navigation */}
+      <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
           {/* Logo */}
-          <button onClick={() => handleNav('home')} className="flex items-center gap-3 shrink-0">
+          <button
+            onClick={() => handleNav('home')}
+            className="flex items-center gap-3 shrink-0"
+          >
             <img
               src={`${import.meta.env.BASE_URL}images/ab784090-441c-40ef-8c98-6f00d64b7dbe.png`}
               alt="PATA Logo"
               className="h-16 w-16 object-contain"
             />
+
             <div className="hidden sm:block leading-tight">
-              <div className="text-[#1B3A8A] font-extrabold text-lg leading-none">PATA</div>
-              <div className="text-[#E8760A] text-[10px] font-semibold uppercase tracking-wide">Progressive American</div>
-              <div className="text-[#138808] text-[10px] font-semibold uppercase tracking-wide">Telugu Association</div>
+              <div className="text-[#1B3A8A] font-extrabold text-lg leading-none">
+                PATA
+              </div>
+
+              <div className="text-[#E8760A] text-[10px] font-semibold uppercase tracking-wide">
+                Progressive American
+              </div>
+
+              <div className="text-[#138808] text-[10px] font-semibold uppercase tracking-wide">
+                Telugu Association
+              </div>
             </div>
           </button>
 
-          {/* Desktop nav */}
+          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <div
                 key={link.page + link.label}
                 className="relative"
-                onMouseEnter={() => link.children && setOpenDropdown(link.label)}
+                onMouseEnter={() =>
+                  link.children &&
+                  setOpenDropdown(link.label)
+                }
                 onMouseLeave={() => setOpenDropdown(null)}
               >
                 <button
-                  onClick={() => !link.children && handleNav(link.page)}
-                  className={`flex items-center gap-1 px-3 py-2 rounded text-sm font-semibold transition-colors ${
-                    currentPage === link.page
+                  onClick={() =>
+                    !link.children &&
+                    handleNav(link.page)
+                  }
+                  className={`flex items-center gap-1 px-3 py-2 rounded text-sm font-semibold transition-colors ${currentPage === link.page
                       ? 'text-[#E8760A]'
                       : 'text-[#1B3A8A] hover:text-[#E8760A]'
-                  }`}
+                    }`}
                 >
                   {link.label}
-                  {link.children && <ChevronDown size={14} />}
+                  {link.children && (
+                    <ChevronDown size={14} />
+                  )}
                 </button>
-                {link.children && openDropdown === link.label && (
-                  <div className="absolute top-full left-0 bg-white shadow-xl rounded-md py-2 min-w-[180px] border border-gray-100 z-50">
-                    {link.children.map((child) => (
-                      <button
-                        key={child.label}
-                        onClick={() => handleNav(child.page)}
-                        className="block w-full text-left px-4 py-2 text-sm text-[#1B3A8A] hover:bg-orange-50 hover:text-[#E8760A] transition-colors"
-                      >
-                        {child.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
+
+                {link.children &&
+                  openDropdown === link.label && (
+                    <div className="absolute top-full left-0 bg-white shadow-xl rounded-md py-2 min-w-[180px] border border-gray-100 z-50">
+                      {link.children.map((child) => (
+                        <button
+                          key={child.label}
+                          onClick={() =>
+                            handleNav(child.page)
+                          }
+                          className="block w-full text-left px-4 py-2 text-sm text-[#1B3A8A] hover:bg-orange-50 hover:text-[#E8760A] transition-colors"
+                        >
+                          {child.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
               </div>
             ))}
           </nav>
 
-          {/* Mobile toggle */}
+          {/* Mobile Toggle */}
           <button
             className="lg:hidden text-[#1B3A8A] p-2"
-            onClick={() => setMobileOpen(!mobileOpen)}
+            onClick={() =>
+              setMobileOpen(!mobileOpen)
+            }
           >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileOpen ? (
+              <X size={24} />
+            ) : (
+              <Menu size={24} />
+            )}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {mobileOpen && (
         <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
           {navLinks.map((link) => (
             <div key={link.page + link.label}>
               <button
                 onClick={() => handleNav(link.page)}
-                className={`block w-full text-left px-6 py-3 font-semibold border-b border-gray-100 transition-colors ${
-                  currentPage === link.page ? 'text-[#E8760A] bg-orange-50' : 'text-[#1B3A8A] hover:bg-gray-50'
-                }`}
+                className={`block w-full text-left px-6 py-3 font-semibold border-b border-gray-100 transition-colors ${currentPage === link.page
+                    ? 'text-[#E8760A] bg-orange-50'
+                    : 'text-[#1B3A8A] hover:bg-gray-50'
+                  }`}
               >
                 {link.label}
               </button>
+
               {link.children?.map((child) => (
                 <button
                   key={child.label}
-                  onClick={() => handleNav(child.page)}
+                  onClick={() =>
+                    handleNav(child.page)
+                  }
                   className="block w-full text-left px-10 py-2 text-sm text-gray-600 border-b border-gray-50 hover:bg-orange-50 hover:text-[#E8760A] transition-colors"
                 >
                   {child.label}
