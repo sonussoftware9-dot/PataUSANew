@@ -32,4 +32,4 @@ jobs:
           port: 21
           protocol: ftp
           local-dir: ./dist/
-          server-dir: /public_html/patausa.org/
+          server-dir: /
