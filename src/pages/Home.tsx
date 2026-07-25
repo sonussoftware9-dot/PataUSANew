@@ -330,7 +330,7 @@ export default function Home({ onNavigate }: HomeProps) {
       </section>
 
       {/* Stats */}
-      <section className="bg-[#1B3A8A] py-20" ref={statsRef}>
+      {/* <section className="bg-[#1B3A8A] py-20" ref={statsRef}>
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-14">
             <span className="text-orange-400 text-sm font-bold uppercase tracking-widest">Our Impact</span>
@@ -361,7 +361,7 @@ export default function Home({ onNavigate }: HomeProps) {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Events */}
       <section className="bg-white py-20">
